@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	connection, err := net.Dial("unix", "/Users/patrickod/tmp/pilot.sock")
+	connection, err := net.Dial("unix", "/tmp/pilot.sock")
 	if err != nil {
 		log.Fatal("Unable to connect to socket: ", err)
 	}
