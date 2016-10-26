@@ -38,5 +38,12 @@ func main() {
 		os.Remove(path)
 	}()
 
-	rpc.Accept(listener)
+	for {
+		conn, err := listener.Accept()
+		if err != nil {
+			panic(err)
+		} else {
+			go rpc.ServeConn(conn)
+		}
+	}
 }
